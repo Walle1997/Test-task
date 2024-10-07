@@ -15,19 +15,24 @@
         let c;
 
         if (ins == null || ins.trim() === "") {
-            window.document.write("<p>Поле не должно оставаться пустым</p>");
-            return;
+          window.document.write("<p>Поле не должно оставаться пустым</p>");
+          return;
         } else if (isNaN(ins) || ins < 0) {
-            window.document.write("<p>Количество компьютеров не может быть отрицательным</p>");
-            return;
+          window.document.write(
+            "<p>Количество компьютеров не может быть отрицательным</p>",
+          );
+          return;
         }
-        
+
         if (lastNum === 1 && lastNums !== 11) {
-            c = "компьютер";
-        } else if ((lastNum === 2 || lastNum === 3 || lastNum === 4) && (lastNums < 12 || lastNums > 14)) {
-            c = "компьютера";
+          c = "компьютер";
+        } else if (
+          (lastNum === 2 || lastNum === 3 || lastNum === 4) &&
+          (lastNums < 12 || lastNums > 14)
+        ) {
+          c = "компьютера";
         } else {
-            c = "компьютеров";
+          c = "компьютеров";
         }
 
         window.document.write("<p>", number, " ", c, "</p>");

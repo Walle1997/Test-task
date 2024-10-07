@@ -1,19 +1,19 @@
 function findCommons(arr) {
-    if (!arr.length) {
-        return [];
-     };
+  if (!arr.length) {
+    return [];
+  }
 
-    const minNumber = Math.min(...arr);
-    const commonElements = [];
+  const minNumber = Math.min(...arr);
+  const commonElements = [];
 
-    for (let i = 1; i <= minNumber; i++) {
-        if (minNumber % i === 0) {
-            if (arr.every(num => num % i === 0)) {
-                commonElements.push(i);
-            }
-        }
+  for (let i = 1; i <= minNumber; i++) {
+    if (minNumber % i === 0) {
+      if (arr.every((num) => num % i === 0)) {
+        commonElements.push(i);
+      }
     }
-    return commonElements;
-};
+  }
+  return commonElements;
+}
 
 findCommons(arr);
