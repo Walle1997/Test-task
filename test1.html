@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Склоняем "Компьютер" с разными целыми числами</title>
+  </head>
+  <body>
+    <h1>Всего в компании...</h1>
+    <script type="text/javascript">
+      const ins = window.prompt("Введите число", 0);
+      function getComputer(number) {
+        const num = Math.abs(Math.floor(number));
+        const lastNum = num % 10;
+        const lastNums = num % 100;
+        let c;
+
+        if (ins == null || ins.trim() === "") {
+            window.document.write("<p>Поле не должно оставаться пустым</p>");
+            return;
+        } else if (isNaN(ins) || ins < 0) {
+            window.document.write("<p>Количество компьютеров не может быть отрицательным</p>");
+            return;
+        }
+        
+        if (lastNum === 1 && lastNums !== 11) {
+            c = "компьютер";
+        } else if ((lastNum === 2 || lastNum === 3 || lastNum === 4) && (lastNums < 12 || lastNums > 14)) {
+            c = "компьютера";
+        } else {
+            c = "компьютеров";
+        }
+
+        window.document.write("<p>", number, " ", c, "</p>");
+      }
+      getComputer(ins);
+    </script>
+  </body>
+</html>

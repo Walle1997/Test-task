@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Таблица умножения</title>
+</head>
+<body>
+    <script type="text/javascript">
+        const ins = window.prompt("Введите число", 0);
+        const num = Number(ins);
+
+        function multiplicTable(num) {
+            let table = '';
+            let maxLength = (num * num).toString().length;
+
+            for (let i = 0; i <= num; i++) {
+                let emptyStr = '';
+
+                for (let j = 0; j <= num; j++) {
+                    let multiplicRowColumn = i * j;
+                    let padding = ' '.repeat(maxLength - multiplicRowColumn.toString().length + 1);
+                    emptyStr += padding + (multiplicRowColumn || ' ');
+                }
+
+                table += emptyStr + '\n';
+            }
+
+            const pre = document.createElement('pre');
+            pre.textContent = "Таблица умножения:\n" + table;
+            document.body.appendChild(pre);
+        }
+
+        if (!isNaN(num) && num >= 0) {
+            multiplicTable(num);
+        } else {
+            alert("Пожалуйста, введите корректное число.");
+        }
+    </script>
+</body>
+</html>
